@@ -1,0 +1,23 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm_vul_analyzer"
+version = "0.0.1"
+description = "Vulnerability analyzer which uses LLM model to scan for secrets in git repositories"
+readme = "README.md"
+authors = [{ name = "Kaloyan Lefterov", email = "klefterov@constructor.university" }]
+requires-python = ">=3.9"
+dependencies = [
+    "GitPython>=3.1.42"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["llm_vul_analyzer*"]
+
+[project.scripts]
+hello_cli = "llm_vul_analyzer.scan:main"
